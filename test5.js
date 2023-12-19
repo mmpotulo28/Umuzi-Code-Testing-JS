@@ -1,26 +1,37 @@
-function triangle ( size ) {
+function triangle ( height ) {
     let result = '';
+    let row = '';
 
-    if ( size > 0 ) {
+    if ( height < 0 ) {
+        height = height * -1;
 
-        for ( let i = 1; i <= size; i++ ) {
-            result += '#'.repeat( i ) + '\n';
+        for ( let i = height; i > 0; i-- ) {
+            row = '#'.repeat( i );
+
+            if ( i > 1 ) {
+                result += row + '\n';
+            } else {
+                result += row;
+            }
         }
-    } else if ( size < 0 ) {
 
-        for ( let i = -size; i >= 1; i-- ) {
-            result += '#'.repeat( i ) + '\n';
+    } else {
+        for ( let i = 1; i <= height; i++ ) {
+            row = '#'.repeat( i );
+
+            if ( i < height ) {
+                result += row + '\n';
+            } else {
+                result += row;
+            }
         }
     }
 
-
-    // console.log( result.trim() );
-    return result.trim();
+    // console.log( result );
+    return result;
 }
-// module.exports = { triangle };
 
-// test cases
-// define test cases
+/************ test cases********************/
 const testCases = [
     { input: 1, expected: '#' },
     { input: 3, expected: '#\n##\n###' },

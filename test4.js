@@ -2,10 +2,13 @@ function square ( size ) {
     let result = '';
 
     for ( let i = 0; i < size; i++ ) {
-        result += '#'.repeat( size ) + '\n';
-    }
-    // console.log( result.trim() );
+        result += '#'.repeat( size );
 
+        if ( i < size - 1 ) {
+            result += '\n';
+        }
+    }
+    // console.log( result );
     return result;
 }
 
