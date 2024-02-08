@@ -1,16 +1,19 @@
-function longest ( array ) {
-  let result = '';
-  for ( const element of array ) {
-    if ( element.length > result.length ) {
-      result = element;
-    }
-  }
-  for ( const element of array ) {
-    if ( element.length === result.length ) {
-      console.log( element );
-    }
-  }
+function longest ( arr ) {
+  let maxLength = 0;
+  let longestStrings = "";
 
+  for ( let i = 0; i < arr.length; i++ ) {
+    const word = arr[ i ];
+
+    if ( word.length > maxLength ) {
+      maxLength = word.length;
+      longestStrings = word;
+    } else if ( word.length === maxLength ) {
+      longestStrings += `,${ word }`;
+    }
+  }
+  const result = longestStrings.split( "," ).join( "\n" );
+  console.log( result );
 }
 
 // tests

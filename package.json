@@ -1,0 +1,11 @@
+{
+  "name": "code-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test1.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "author": "Manelisi Mpotulo",
+  "license": "ISC"
+}

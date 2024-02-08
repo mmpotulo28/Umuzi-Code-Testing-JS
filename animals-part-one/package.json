@@ -1,0 +1,14 @@
+{
+  "name": "animals-part-one",
+  "version": "1.0.0",
+  "description": "",
+  "main": "animals.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "author": "Manleisi Mpotulo",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^5.1.0"
+  }
+}

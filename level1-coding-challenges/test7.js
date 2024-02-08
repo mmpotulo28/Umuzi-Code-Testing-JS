@@ -1,24 +1,21 @@
-function combine ( list1, list2 ) {
-    let combinedList = [];
-    const maxLength = list1.length > list2.length ? list1.length : list2.length;
-
-    for ( let i = 0; i < maxLength; i++ ) {
-        if ( i < list1.length ) {
-            combinedList.push( list1[ i ] );
+function combine ( arr1, arr2 ) {
+    const combinedArray = [];
+    for ( let i = 0; i < Math.max( arr1.length, arr2.length ); i++ ) {
+        if ( i < arr1.length ) {
+            combinedArray.push( arr1[ i ] );
         }
-        if ( i < list2.length ) {
-            combinedList.push( list2[ i ] );
+        if ( i < arr2.length ) {
+            combinedArray.push( arr2[ i ] );
         }
     }
-
-    return combinedList;
+    return combinedArray;
 }
 
 // test cases
 const testCases = [
     { input: [ [ 1, 2, 3, 4, 5 ], [ 'a', 'b', 'c', 'd' ] ], expected: [ 1, 'a', 2, 'b', 3, 'c', 4, 'd', 5 ] },
     // add more test cases here
-    { input: [ [ 5, 4, 3, 2, 1 ], [ 'd', 'c', 'b', 'a' ] ], expected: [ 5, 'd', 4, 'c', 3, 'b', 2, 'a', 1 ] },
+    { input: [ [ 5, 4, 3 ], [ 'd', 'c', 'b', 'a', 'Z' ] ], expected: [ 5, 'd', 4, 'c', 3, 'b', 'a', 'Z' ] },
 ];
 
 testCases.forEach( ( { input, expected }, i ) => {

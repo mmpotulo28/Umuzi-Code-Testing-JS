@@ -1,15 +1,12 @@
-function square ( size ) {
-    let result = '';
+function square ( num ) {
+    for ( let i = 0; i < num; i++ ) {
+        let rows = "";
 
-    for ( let i = 0; i < size; i++ ) {
-        result += '#'.repeat( size );
-
-        if ( i < size - 1 ) {
-            result += '\n';
+        for ( let j = 0; j < num; j++ ) {
+            rows += "#";
         }
+        console.log( rows );
     }
-    // console.log( result );
-    return result;
 }
 
 // tests
