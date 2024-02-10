@@ -1,46 +1,66 @@
 class Animal {
-    constructor ( _name ) {
-        this.name = _name;
+  constructor(name) {
+    this._name = name;
+
+    if (typeof this._name !== "string") {
+      throw new Error("Name must be a string");
     }
-    eat () {
-        return ( `${ this.name } eats` );
-    }
+  }
+
+  eat() {
+    return this._name + " eats";
+  }
+
+  sound() {
+    return "sound...";
+  }
 }
 
 class Dog extends Animal {
-    constructor ( _name ) {
-        super( _name || 'Rax' );
-    }
-    sound () {
-        return "Bark";
-    }
+  constructor(name) {
+    super(name || "Rax");
+  }
+
+  sound() {
+    return "Bark";
+  }
 }
 
 class Cat extends Animal {
-    constructor ( _name ) {
-        super( _name || "Stormy" );
-    }
+  constructor(name) {
+    super(name || "Stormy");
+  }
 
-    sound () {
-        return "Meow";
-    }
+  sound() {
+    return "Meow";
+  }
 }
 
 class Home {
-    constructor () {
-        this.petAnimals = [];
+  constructor() {
+    this.pets = [];
+  }
+
+  adoptPet(pet) {
+    if (!(pet instanceof Animal)) {
+      throw new Error("Only instances of Animal can be adopted");
     }
-    adoptPet ( animal ) {
-        if ( this.petAnimals.includes( animal ) ) {
-            throw new Error( "This pet has already been adopted!" );
-        }
-        this.petAnimals.push( animal );
+    if (this.pets.includes(pet)) {
+      throw new Error("This pet has already been adopted");
+    } else {
+      this.pets.push(pet);
+      return this.pets.length;
     }
-    makeAllSounds () {
-        for ( let pet of this.petAnimals ) {
-            console.log( pet.sound() );
-        }
-    }
+  }
+
+  makeAllSounds() {
+    return this.pets.map((pet) => pet.sound());
+  }
 }
 
-module.exports = { Animal, Dog, Cat, Home };
+module.exports = {
+  Animal,
+  Dog,
+  Cat,
+  Home,
+};

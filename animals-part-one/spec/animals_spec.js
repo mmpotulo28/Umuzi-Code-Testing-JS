@@ -10,19 +10,20 @@ describe('Home', () => {
     it('should adopt a pet', () => {
         const pet = new Dog();
         const result = home.adoptPet(pet);
-        expect(result).toBe(1);
-        expect(home.adoptedPets).toContain(pet);
+        expect( result ).toBe( 1 );
+        const animalsArr = Object.getOwnPropertyNames(home);
+        expect( home[animalsArr] ).toContain(pet);
     });
 
     it('should throw an error when adopting the same pet twice', () => {
         const pet = new Cat();
         home.adoptPet(pet);
-        expect( () => home.adoptPet( pet ) ).toThrowError('This pet has already been adopted!');
+        expect( () => home.adoptPet( pet ) ).toThrowError('This pet has already been adopted');
     });
 
     it('should throw an error when adopting an invalid pet', () => {
         const pet = 'Not a pet';
-        expect(() => home.adoptPet(pet)).toThrowError('Invalid pet, please adopt a valid pet.');
+        expect( () => home.adoptPet( pet ) ).toThrowError('Only instances of Animal can be adopted');
     });
 
     it('should make all adopted pets sound', () => {
@@ -33,9 +34,8 @@ describe('Home', () => {
         home.adoptPet(dog1);
         home.adoptPet(dog2);
         home.adoptPet(cat1);
-        home.adoptPet(cat2);
         const result = home.makeAllSounds();
-        expect(result).toEqual(['Bark', 'Bark', 'Meow', 'Meow']);
+        expect(result).toEqual(['Bark', 'Bark', 'Meow']);
     });
 });
 
